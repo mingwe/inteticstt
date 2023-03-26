@@ -1,20 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Product } from './Product'
-import { products } from '../mock'
-import { Grid, Paper } from '@mui/material';
+// import { products } from '../mock'
+import { Grid, Paper } from '@mui/material'
+import { useDispatch, useSelector } from 'react-redux'
+import { getProducts } from '../redux/productsSlice'
+import ProductsList from './ProductsList';
 
 export const Main = () => {
+
   return (
     <div>
       main
       <Paper>
-        <Grid container spacing={2}>
-          {products.map((item, index) => (
-            <Grid item xs={4} key={index}>
-              <Product data={item}/>
-            </Grid>
-          ))}
-        </Grid>
+        <ProductsList/>
       </Paper>
     </div>
   )

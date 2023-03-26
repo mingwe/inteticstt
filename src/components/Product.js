@@ -9,9 +9,9 @@ export const Product = ({data}) => {
   // const price = '$100'
   // const rating = '4.5'
   // console.log('data', data)
-  const {title, description, image, color, price, rating} = data
+  const {title, description, image, color, category, price, rating} = data
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, height: '100%' }}>
       <CardMedia
         component="img"
         alt={title}
@@ -23,12 +23,17 @@ export const Product = ({data}) => {
           {title}
         </Typography>
         <Typography variant="description" color="text.secondary">
-          {description}
+          {/*{description}*/}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          <p><b>Color: </b> {color}</p>
-          <p><b>Price: </b> ${price}</p>
-          <p><b>Rating: </b> {rating}</p>
+          <b>Price: </b> ${price}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {/*<b>Color: </b> {color}*/}
+          <b>Category: </b> {category}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {/*<p><b>Rating: </b> {rating}</p>*/}
         </Typography>
       </CardContent>
     </Card>
