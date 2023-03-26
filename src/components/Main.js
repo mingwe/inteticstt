@@ -11,7 +11,7 @@ export const Main = () => {
   const products = useSelector(state => state.products?.products)
   const productsFiltered = useSelector(state => state.products?.productsFiltered)
   const status = useSelector(state => state.products.status)
-  const errorMsg = useSelector(state => status.error)
+  const errorMsg = useSelector(state => state.products.error)
 
   useEffect(() => {
       dispatch(getProducts())

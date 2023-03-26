@@ -1,7 +1,7 @@
 import React from 'react'
 import { Sort } from './Sort'
-import { Box, Divider, Grid, Paper, Typography } from '@mui/material';
-import { Search } from './filters/Search';
+import { Box, Paper, Typography } from '@mui/material'
+import { Search } from './filters/Search'
 
 export const TopBar = () => (
   <>

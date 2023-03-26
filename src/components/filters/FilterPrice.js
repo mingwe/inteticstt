@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { Box, Grid, TextField } from '@mui/material'
+import { Grid, TextField } from '@mui/material'
 import { applyFilters, setPriceMax, setPriceMin } from '../../redux/productsSlice'
 
 export const FilterPrice = () => {

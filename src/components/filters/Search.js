@@ -11,8 +11,7 @@ export const Search = () => {
   const debounced = useDebouncedCallback((value) => {
     dispatch(setSearchFilter(value))
     dispatch(applyFilters())
-  }, 1000);
-
+  }, 1000)
 
   return (
     <TextField

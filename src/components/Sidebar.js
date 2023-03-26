@@ -1,8 +1,8 @@
 import React from 'react'
-import { TotalCount } from './filters/TotalCount';
-import { Box, Divider, Paper, Typography } from '@mui/material';
-import { FilterCategory } from './filters/FilterCategory';
-import { FilterPrice } from './filters/FilterPrice';
+import { TotalCount } from './filters/TotalCount'
+import { Box, Divider, Paper, Typography } from '@mui/material'
+import { FilterCategory } from './filters/FilterCategory'
+import { FilterPrice } from './filters/FilterPrice'
 
 export const Sidebar = () => (
   <>

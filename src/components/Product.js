@@ -1,15 +1,8 @@
 import React from 'react'
-import { Card, CardContent, CardMedia, Typography } from '@mui/material';
+import { Card, CardContent, CardMedia, Typography } from '@mui/material'
 
-export const Product = ({data}) => {
-  // const title = 'Sneakers'
-  // const description = 'Made of resin and glue'
-  // const image = '/static/images/cards/contemplative-reptile.jpg'
-  // const color = 'Black'
-  // const price = '$100'
-  // const rating = '4.5'
-  // console.log('data', data)
-  const {title, description, image, color, category, price, rating} = data
+export const Product = ({ data }) => {
+  const {title, description, image, category, price, rating} = data
   return (
     <Card sx={{ maxWidth: 345, height: '100%' }}>
       <CardMedia
