@@ -13,6 +13,14 @@ const ProductsList = () => {
   // const [filteredProducts, setFilteredProducts] = useState(products)
   // console.log('products', products)
   // console.log('filteredProducts', filteredProducts)
+  const [sortedProducts, setSortedProducts] = useState(products)
+
+  useEffect(
+    () => {
+      setSortedProducts(products)
+    },
+    [products]
+  )
 
   // useEffect(
   //   () => {
@@ -53,9 +61,9 @@ const ProductsList = () => {
 
   return (
     <Grid container spacing={3}>
-      {products.map((item, index) => (
+      {sortedProducts.map((item, index) => (
       // {filteredProducts.map((item, index) => (
-        <>
+        <React.Fragment key={index}>
           {/*{!(filters.categories.length && !filters.categories.includes(item?.category))*/}
           {/*?*/}
           {/*  {((item.price > filters?.price?.min) && (item.price < filters?.price?.max))*/}
@@ -74,7 +82,7 @@ const ProductsList = () => {
             </Grid>
             : null
           }
-        </>
+        </React.Fragment>
       ))}
     </Grid>
   )

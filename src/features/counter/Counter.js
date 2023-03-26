@@ -5,11 +5,11 @@ import {
   increment,
   incrementByAmount,
   incrementAsync,
-  incrementIfOdd,
+  // incrementIfOdd,
   selectCount,
 } from './counterSlice';
 import styles from './Counter.module.css';
-import { addCategory, removeCategory, toggleCategory } from '../../redux/filtersSlice';
+import { addCategory, applyFilters, incrementIfOdd, removeCategory, toggleCategory } from '../../redux/filtersSlice';
 
 export function Counter() {
   const count = useSelector(selectCount);
@@ -97,6 +97,12 @@ export function Counter() {
           onClick={() => dispatch(incrementIfOdd(incrementValue))}
         >
           Add If Odd
+        </button>
+        <button
+          className={styles.button}
+          onClick={() => dispatch(applyFilters(incrementValue))}
+        >
+          Apply filters
         </button>
       </div>
     </div>
