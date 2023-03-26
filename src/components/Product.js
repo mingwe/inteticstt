@@ -33,7 +33,7 @@ export const Product = ({data}) => {
           <b>Category: </b> {category}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {/*<p><b>Rating: </b> {rating}</p>*/}
+          <b>Rating: </b> {rating?.rate}
         </Typography>
       </CardContent>
     </Card>

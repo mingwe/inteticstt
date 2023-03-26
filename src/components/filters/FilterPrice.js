@@ -1,43 +1,51 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Box, TextField } from '@mui/material'
-import { setPriceMax, setPriceMin } from '../../redux/filtersSlice'
+import { Box, Grid, TextField } from '@mui/material'
+import { applyFilters, setPriceMax, setPriceMin } from '../../redux/productsSlice'
 
 export const FilterPrice = () => {
 
   const dispatch = useDispatch()
-  const filteredPrice = useSelector(state => state.filters.filters.price)
+  const filteredPrice = useSelector(state => state.products.filters.price)
 
-  console.log('filter prices', filteredPrice)
+  const handleChange = (e, field) => {
+    if (field === 'min') {
+      dispatch(setPriceMin(+e.target.value || null))
+    } else {
+      dispatch(setPriceMax(+e.target.value || null))
+    }
+    dispatch(applyFilters())
+  }
 
 
   return (
-    <Box
+    <Grid
       component="form"
       sx={{
-        '& .MuiTextField-root': { m: 1, width: '25ch' },
+        // '& .MuiTextField-root': { m: 1, width: '25ch' },
       }}
       noValidate
       autoComplete="off"
+      container
+      spacing={2}
+      my={0}
     >
-      <TextField
-        id="outlined-number"
-        label="Min"
-        type="number"
-        InputLabelProps={{
-          shrink: true,
-        }}
-        onChange={(e) => dispatch(setPriceMin(+e.target.value || null))}
-      />
-      <TextField
-        id="outlined-number"
-        label="Max"
-        type="number"
-        InputLabelProps={{
-          shrink: true,
-        }}
-        onChange={(e) => dispatch(setPriceMax(+e.target.value || null))}
-      />
-    </Box>
+      <Grid item xs={6}>
+        <TextField
+          label="Min"
+          type="number"
+          onChange={(e) => handleChange(e, 'min')}
+          size={'small'}
+        />
+      </Grid>
+      <Grid item xs={6}>
+        <TextField
+          label="Max"
+          type="number"
+          onChange={(e) => handleChange(e, 'max')}
+          size={'small'}
+        />
+      </Grid>
+    </Grid>
   )
 }

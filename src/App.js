@@ -1,60 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
-import { ShopPage } from './components';
+import React from 'react'
+import './App.css'
+import { Container, Grid } from '@mui/material'
+import { TopBar } from './components/TopBar'
+import { Sidebar } from './components/Sidebar'
+import { Main } from './components/Main'
 
 function App() {
   return (
-    <div className="App">
-      <ShopPage/>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
-  );
+    // <div className="App">
+      <Container>
+        <Grid container py={5}>
+          <Grid item sm={12} p={2} sx={{background: '#f0f0f0'}}>
+            <TopBar/>
+          </Grid>
+          <Grid item sm={3} p={2} sx={{background: '#fafafa'}}>
+            <Sidebar/>
+          </Grid>
+          <Grid item sm={9} p={2} sx={{background: '#fafafa'}}>
+            <Main/>
+          </Grid>
+        </Grid>
+      </Container>
+    // </div>
+  )
 }
 
-export default App;
+export default App

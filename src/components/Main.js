@@ -1,19 +1,9 @@
-import React, { useEffect } from 'react'
-import { Product } from './Product'
-// import { products } from '../mock'
-import { Grid, Paper } from '@mui/material'
-import { useDispatch, useSelector } from 'react-redux'
-import { getProducts } from '../redux/productsSlice'
-import ProductsList from './ProductsList';
+import React from 'react'
+import { Box, Paper } from '@mui/material'
+import ProductsList from './ProductsList'
 
-export const Main = () => {
-
-  return (
-    <div>
-      main
-      <Paper>
-        <ProductsList/>
-      </Paper>
-    </div>
-  )
-}
+export const Main = () => (
+  // <Paper>
+    <ProductsList/>
+  // </Paper>
+)

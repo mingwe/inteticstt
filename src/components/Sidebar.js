@@ -1,13 +1,10 @@
 import React from 'react'
-import { FilterCategory } from './filters/FilterCategory';
-import { FilterPrice } from './filters/FilterPrice';
+import { Filters } from './filters/Filters'
+import { TotalCount } from './filters/TotalCount';
+import { Box } from '@mui/material';
 
 export const Sidebar = () => {
   return (
-    <div>
-      Sidebar
-      <FilterCategory/>
-      <FilterPrice/>
-    </div>
+    <Filters/>
   )
 }

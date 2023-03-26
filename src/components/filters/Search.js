@@ -1,9 +1,9 @@
 import React from 'react'
 
-export const Filter = () => {
+export const Search = () => {
   return (
     <div>
-      filter
+      Search
     </div>
   )
 }
