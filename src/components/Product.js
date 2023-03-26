@@ -1,10 +1,10 @@
 import React from 'react'
-import { Card, CardContent, CardMedia, Typography } from '@mui/material'
+import { Box, Card, CardActions, CardContent, CardMedia, Rating, Typography } from '@mui/material'
 
 export const Product = ({ data }) => {
   const {title, description, image, category, price, rating} = data
   return (
-    <Card sx={{ maxWidth: 345, height: '100%' }}>
+    <Card sx={{ display: 'flex', flexDirection: 'column', maxWidth: 600, height: '100%', borderRadius: '15px' }}>
       <CardMedia
         component="img"
         alt={title}
@@ -12,23 +12,35 @@ export const Product = ({ data }) => {
         image={image}
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="h7" component="div">
           {title}
         </Typography>
-        <Typography variant="description" color="text.secondary">
+        <Typography variant="caption" color="text.secondary">
           {/*{description}*/}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          <b>Price: </b> ${price}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {/*<b>Color: </b> {color}*/}
-          <b>Category: </b> {category}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          <b>Rating: </b> {rating?.rate}
-        </Typography>
       </CardContent>
+      <CardContent sx={{display: 'flex', flexDirection: 'column', marginTop: 'auto'}}>
+        <Typography
+          variant={"h5"}
+          color="text.primary"
+        >
+          ${price}
+        </Typography>
+        <Rating
+          value={rating?.rate}
+          readOnly
+          sx={{color: '#555'}}
+        />
+        <Typography variant="body2" color="text.primary" mt={2}>
+          Category: <Typography component="span" color={"text.secondary"}>{category}</Typography>
+        </Typography>
+        {/*<Typography variant="body2" color="text.secondary">*/}
+        {/*  <b>Rating: </b> {rating?.rate}*/}
+        {/*</Typography>*/}
+      </CardContent>
+      {/*<CardActions sx={{marginTop: 'auto'}}>*/}
+      {/*  card actions*/}
+      {/*</CardActions>*/}
     </Card>
   )
 }

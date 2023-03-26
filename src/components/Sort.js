@@ -3,6 +3,7 @@ import { Button, Stack } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import { setSort } from '../redux/productsSlice'
 import { ASC, DESC, POPULAR } from '../helpers/sort'
+import { red } from '@mui/material/colors';
 
 export const Sort = () => {
   const dispatch = useDispatch()
@@ -31,6 +32,9 @@ export const Sort = () => {
           key={index}
           variant={activeSort === item.value ? 'contained' : 'outlined'}
           onClick={() => dispatch(setSort(item.value))}
+          color={'secondary'}
+          size={'small'}
+          sx={{textTransform: 'initial'}}
         >
           {item.name}
         </Button>

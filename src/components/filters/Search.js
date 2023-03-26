@@ -18,6 +18,8 @@ export const Search = () => {
       label="Smart search"
       defaultValue={searchString}
       size={'small'}
+      color={'secondary'}
+      fullWidth
       onChange={(e) => debounced(e.target.value)}
     />
   );

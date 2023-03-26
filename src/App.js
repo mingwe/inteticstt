@@ -1,30 +1,50 @@
 import React from 'react'
 import './App.css'
-import { Container, Grid, Typography } from '@mui/material'
+import { Box, Container, createTheme, Grid, Link, ThemeProvider, Typography } from '@mui/material'
 import { TopBar } from './components/TopBar'
 import { Sidebar } from './components/Sidebar'
 import { Main } from './components/Main'
+import { blueGrey, grey } from '@mui/material/colors'
+import { Sort } from './components/Sort'
+import { Header } from './components/Header'
 
-const description = 'Used `fakestoreapi.com` as backend. All filters and search (with delay) done on frontend (but in real project, i believe, almost all filters will be on backend and only requests will be on front). Sure here can be many optimizations, tests, ts, detailed styling, etc. But i\'ve relized that this is test task, so i did it as a time-effective solution. We can discuss and sure i can improve it'
 function App() {
+
+  const redTheme = createTheme({
+    palette: {
+      primary: blueGrey,
+      // secondary: blueGrey
+      secondary: {
+        light: grey[100],
+        main: grey[900],
+        dark: grey[700],
+        contrastText: '#fff',
+      },
+    }
+  })
+
   return (
-    <Container>
-      <Grid container py={5} sx={{background: '#fafafa'}}>
-        <Grid item xs={12} px={2} pb={2}>
-          <Typography variant={'h2'} textAlign={'center'} mb={3}>Shopping cart</Typography>
-          <Typography variant={'description'} p={2} color={'#555'} fontStyle={'italic'}>{description}</Typography>
+    <ThemeProvider theme={redTheme}>
+      <Container>
+        <Grid container py={5} sx={{background: '#f5f5f7'}}>
+          <Grid item xs={12} px={2} pb={2}>
+            <Header/>
+          </Grid>
+          <Grid item xs={12} p={2}>
+            <TopBar/>
+          </Grid>
+          <Grid item xs={12} md={3} p={2}>
+            <Sidebar/>
+          </Grid>
+          <Grid item xs={12} md={9} p={2}>
+            <Box mt={2} mb={5}>
+              <Sort/>
+            </Box>
+            <Main/>
+          </Grid>
         </Grid>
-        <Grid item xs={12} p={2}>
-          <TopBar/>
-        </Grid>
-        <Grid item xs={12} md={3} p={2}>
-          <Sidebar/>
-        </Grid>
-        <Grid item xs={12} md={9} p={2}>
-          <Main/>
-        </Grid>
-      </Grid>
-    </Container>
+      </Container>
+    </ThemeProvider>
   )
 }
 
