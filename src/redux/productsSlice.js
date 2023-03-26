@@ -1,7 +1,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { fetchCategories, fetchProducts } from './productsAPI'
-import { ASC, DESC, POPULAR } from '../helpers/sort';
+import { sortByType } from '../helpers/sort';
 import { STATUS_ERROR, STATUS_IDLE, STATUS_LOADING } from '../helpers/status';
+import Fuse from 'fuse.js';
+import { filterWithCategoryAndPrice } from '../helpers/filters';
+
 
 const initialState = {
   value: 0,
@@ -14,9 +17,11 @@ const initialState = {
     price: {
       min: null,
       max: null,
-    }
+    },
+    search: '',
   },
   productsFiltered: [],
+  productsFilteredMatchSearch: [],
   sort: null,
 };
 
@@ -75,31 +80,31 @@ export const productsSlice = createSlice({
       state.filters.price.max = action.payload
     },
     applyFilters: (state) => {
-      const categories = state.filters.categories
-      const priceMin = state.filters.price.min ?? -Infinity
-      const priceMax = state.filters.price.max ?? +Infinity
-      const filteredByCategories = state.products.filter(i => !categories.length || categories.includes(i.category))
-      const filteredByPrice = filteredByCategories.filter(i => i.price >= priceMin && i.price <= priceMax)
-      state.productsFiltered = filteredByPrice
+      // state.productsFiltered = filterWithCategoryAndPrice(state)
+      // const productsFiltered = state.products
+      const productsFiltered = filterWithCategoryAndPrice(state)
+      if (state.filters.search) {
+        //search with fuse.js
+        const options = {
+          includeScore: true,
+          keys: ['title', 'description']
+        }
+        const fuse = new Fuse(productsFiltered, options)
+        const result = fuse.search(state.filters.search).map(i => i.item)
+
+        state.productsFiltered = sortByType(state.sort, result)
+      } else {
+        state.productsFiltered = sortByType(state.sort, productsFiltered)
+      }
     },
     setSort: (state, action) => {
       if (action.payload !== state.sort) {
         state.sort = action.payload
-        switch (action.payload) {
-          case ASC:
-            state.products.sort((a, b) => (a.price > b.price ? 1 : -1))
-            break
-          case DESC:
-            state.products.sort((a, b) => (a.price < b.price ? 1 : -1))
-            break
-          case POPULAR:
-            state.products.sort((a, b) => (a.rating.rate > b.rating.rate ? 1 : -1))
-            break
-          default:
-            break
-        }
+        state.products = sortByType(action.payload, state.products)
       }
-      // state.products
+    },
+    setSearchFilter: (state, action) => {
+      state.filters.search = action.payload
     }
   },
   // The `extraReducers` field lets the slice handle actions defined elsewhere,
@@ -138,7 +143,7 @@ export const productsSlice = createSlice({
   },
 });
 
-export const { incrementByAmount, toggleCategory, setPriceMin, setPriceMax, applyFilters, setSort } = productsSlice.actions;
+export const { incrementByAmount, toggleCategory, setPriceMin, setPriceMax, applyFilters, setSort, setSearchFilter } = productsSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of

@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { applyFilters, getCategories, toggleCategory } from '../../redux/productsSlice'
-import { FilterCheckbox } from './FilterCheckbox';
-import { FormGroup } from '@mui/material';
+import { FilterCheckbox } from './FilterCheckbox'
+import { FormGroup } from '@mui/material'
 
 export const FilterCategory = () => {
 
@@ -14,9 +14,6 @@ export const FilterCategory = () => {
     dispatch(getCategories())
   }, [dispatch])
 
-  console.log('categoriesList', categoriesList)
-  console.log('filteredCats', filteredCategories)
-
   const handleChange = (item) => {
     dispatch(toggleCategory(item))
     dispatch(applyFilters())
@@ -25,7 +22,6 @@ export const FilterCategory = () => {
   return (
     <FormGroup>
       {categoriesList.map((item, index) => (
-        // <p key={index}>{item}</p>
         <FilterCheckbox
           key={index}
           name={item}

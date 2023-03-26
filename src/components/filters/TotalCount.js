@@ -1,6 +1,6 @@
 import React from 'react'
-import { useSelector } from 'react-redux';
-import { Box } from '@mui/material';
+import { useSelector } from 'react-redux'
+import { Box } from '@mui/material'
 
 export const TotalCount = () => {
   const count = useSelector(state => state.products.productsFiltered.length) || 0
