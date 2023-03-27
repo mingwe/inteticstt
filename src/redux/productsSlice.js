@@ -20,7 +20,6 @@ const initialState = {
     search: '',
   },
   productsFiltered: [],
-  productsFilteredMatchSearch: [],
   sort: null,
 }
 

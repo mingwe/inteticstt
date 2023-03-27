@@ -3,7 +3,6 @@ import { Button, Stack } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import { setSort } from '../redux/productsSlice'
 import { ASC, DESC, POPULAR } from '../helpers/sort'
-import { red } from '@mui/material/colors';
 
 export const Sort = () => {
   const dispatch = useDispatch()
@@ -12,11 +11,11 @@ export const Sort = () => {
 
   const btnsList = [
     {
-      name: 'Low to High',
+      name: 'Price to High',
       value: ASC
     },
     {
-      name: 'High to low',
+      name: 'Price to Low',
       value: DESC
     },
     {
