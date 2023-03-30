@@ -1,7 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'https://fakestoreapi.com' // normally it will be in .env file
-
+const API_URL = process.env.REACT_APP_API_BASE_URL
 export function fetchProducts() {
   return axios.get(`${API_URL}/products`)
 }
