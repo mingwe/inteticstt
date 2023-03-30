@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { fetchCategories, fetchProducts } from './productsAPI'
+import { fetchCategories, fetchColors, fetchProducts } from './productsAPI'
 import { sortByType } from '../helpers/sort'
 import { STATUS_ERROR, STATUS_IDLE, STATUS_LOADING } from '../helpers/status'
 import Fuse from 'fuse.js'
@@ -35,6 +35,14 @@ export const getCategories = createAsyncThunk(
   'products/fetchCategories',
   async () => {
     const response = await fetchCategories()
+    return response.data
+  }
+)
+
+export const getColors = createAsyncThunk(
+  'products/fetchColors',
+  async () => {
+    const response = await fetchColors()
     return response.data
   }
 )
@@ -92,14 +100,14 @@ export const productsSlice = createSlice({
         state.status = STATUS_ERROR
         state.error = 'an error occured'
       })
-      .addCase(getCategories.pending, (state) => {
+      .addCase(getColors.pending, (state) => {
         state.status = STATUS_LOADING
       })
-      .addCase(getCategories.fulfilled, (state, action) => {
+      .addCase(getColors.fulfilled, (state, action) => {
         state.status = STATUS_IDLE
         state.categories = action.payload
       })
-      .addCase(getCategories.rejected, (state, action) => {
+      .addCase(getColors.rejected, (state, action) => {
         state.status = STATUS_ERROR
         state.error = 'an error occured'
       })

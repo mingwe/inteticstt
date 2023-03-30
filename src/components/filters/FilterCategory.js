@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { applyFilters, getCategories, toggleCategory } from '../../redux/productsSlice'
+import { applyFilters, getCategories, getColors, toggleCategory } from '../../redux/productsSlice'
 import { Checkbox, FormControlLabel, FormGroup } from '@mui/material'
 
 export const FilterCategory = () => {
@@ -10,7 +10,7 @@ export const FilterCategory = () => {
   const filteredCategories = useSelector(state => state.products.filters.categories)
 
   useEffect(() => {
-    dispatch(getCategories())
+    dispatch(getColors())
   }, [dispatch])
 
   const handleChange = (item) => {
