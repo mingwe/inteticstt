@@ -1,6 +1,13 @@
 import React from 'react'
 import TopBar from './TopBar'
 import Head from 'next/head';
+import { Box, Container, createTheme, Grid, ThemeProvider } from '@mui/material';
+import { AppInfo } from './AppInfo';
+import { Search } from './filters/Search';
+import { Sidebar } from './Sidebar';
+import { Sort } from './Sort';
+import { Main } from './Main';
+import { blueGrey, grey } from '@mui/material/colors';
 
 const pages = [
   {
@@ -17,16 +24,39 @@ const pages = [
   }
 ]
 export const MainContainer = ({ children, title, keywords }) => {
+
+  const redTheme = createTheme({
+    palette: {
+      primary: blueGrey,
+      secondary: {
+        light: grey[100],
+        main: grey[900],
+        dark: grey[700],
+        contrastText: '#fff',
+      },
+    }
+  })
+
   return (
     <>
       <Head>
         <meta keywords={'Peter, js app shop' + keywords} />
         <title>{title}</title>
       </Head>
-      <TopBar pages={pages}/>
-      <div>
-        {children}
-      </div>
+      <ThemeProvider theme={redTheme}>
+        <Container>
+          <Grid container>
+            <Grid item xs={12} pb={2}>
+              <TopBar pages={pages}/>
+            </Grid>
+            <Grid item xs={12}>
+              <Grid container>
+                {children}
+              </Grid>
+            </Grid>
+          </Grid>
+        </Container>
+      </ThemeProvider>
     </>
   )
 }
