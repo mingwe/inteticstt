@@ -1,5 +1,5 @@
 import React from 'react'
-import { MainContainer } from '../src/components/MainContainer'
+import { MainContainer } from '../src/components/containers/MainContainer'
 import { AppInfo } from '../src/components/AppInfo'
 
 const About = () => {

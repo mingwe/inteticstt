@@ -15,7 +15,7 @@ import Link from 'next/link'
 import { PropTypes } from "prop-types"
 
 
-const TopBar = ({pages}) => {
+const Navbar = ({pages}) => {
 
   const [anchorElNav, setAnchorElNav] = React.useState(null)
 
@@ -88,7 +88,7 @@ const TopBar = ({pages}) => {
   )
 }
 
-TopBar.propTypes = {
+Navbar.propTypes = {
   pages: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
@@ -97,4 +97,4 @@ TopBar.propTypes = {
   ).isRequired
 }
 
-export default TopBar
+export default Navbar

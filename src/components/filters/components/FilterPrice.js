@@ -1,21 +1,12 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { Grid, TextField } from '@mui/material'
-import { applyFilters, setPriceMax, setPriceMin } from '../../redux/old/productsSlice'
 
-export const FilterPrice = () => {
-
-  const dispatch = useDispatch()
-
+export const FilterPrice = ({ price, onChange }) => {
   const handleChange = (e, field) => {
-    if (field === 'min') {
-      dispatch(setPriceMin(+e.target.value || null))
-    } else {
-      dispatch(setPriceMax(+e.target.value || null))
-    }
-    dispatch(applyFilters())
+    const val = +e.target.value || null
+    onChange(val, field)
   }
-
 
   return (
     <Grid

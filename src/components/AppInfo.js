@@ -1,11 +1,7 @@
 import React from 'react'
 import { Link, Typography } from '@mui/material'
-import ProductsService from '../api/shop/ProductsService';
-import FiltersService from '../api/shop/FiltersService';
 
 export const AppInfo = () => {
-  // console.log('ps p', ProductsService.getProducts())
-  // console.log('colors', FiltersService.getColorsList())
   const description = 'I used `fakestoreapi.com` as backend. All filters and search (with delay) done on frontend (but in real project, i believe, almost all filters will be on backend and only requests will be on front). Sure here can be many optimizations, tests, ts, detailed styling, etc. But i\'ve relized that this is test task, so i did it as a time-effective solution. We can discuss and sure i can improve it'
   return (
     <>

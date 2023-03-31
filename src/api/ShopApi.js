@@ -1,15 +1,17 @@
-/* eslint-disable no-underscore-dangle */
 import _axios from 'axios'
 import { trimEnd } from 'lodash'
-import Qs from 'qs'
-
-// import { clearSession, getSession, setSession } from '@src/store/session'
 
 function createBaseApi() {
 
   const BaseApi = _axios.create({
     paramsSerializer: {
-      encode: (q) => q.replace('[]', '')
+      encode: (q) => {
+        if (typeof q === 'string') {
+          return  q.replace('[]', '')
+        } else {
+          return q
+        }
+      }
     },
   })
 

@@ -1,36 +1,27 @@
 import React, { useEffect } from 'react'
 import { Alert, Grid } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
-import { STATUS_ERROR, STATUS_IDLE, STATUS_LOADING } from '../helpers/status'
-import { Loader } from './Loader'
-import { ProductsList } from './ProductsList'
-import { getProducts } from '../redux/actions/products';
-import { TempComp } from './TempComp';
+import { STATUS_ERROR, STATUS_IDLE, STATUS_LOADING } from '../../helpers/status'
+import { Loader } from '../utils/Loader'
+import { ProductsList } from './components/ProductsList'
+import { getProducts } from '../../redux/actions/products';
 
-export const Main = () => {
+export const Products = () => {
   const dispatch = useDispatch()
   const products = useSelector(state => state.products?.items)
-  // const productsFiltered = useSelector(state => state.products?.productsFiltered)
   // const status = useSelector(state => state.products.status)
   // const errorMsg = useSelector(state => state.products.error)
   const filters = useSelector(state => state.filter)
+  const sort = useSelector(state => state.sort)
 
   useEffect(() => {
-      dispatch(getProducts('asc', filters))
+      dispatch(getProducts(sort, filters))
     },
-    [dispatch, filters]
+    [dispatch, filters, sort]
   )
-
-  // useEffect(
-  //   () => {
-  //     dispatch(applyFilters())
-  //   },
-  //   [products]
-  // )
 
   return (
     <Grid container spacing={2}>
-      <TempComp/>
       {/*{status === STATUS_LOADING &&*/}
       {/*  <Loader/>*/}
       {/*}*/}

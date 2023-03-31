@@ -1,26 +1,25 @@
 import React from 'react'
-import { MainContainer } from '../src/components/MainContainer'
+import { MainContainer } from '../src/components/containers/MainContainer'
 import { Box, Grid } from '@mui/material'
-import { Sidebar } from '../src/components/Sidebar'
-import { Main } from '../src/components/Main'
+import { Products } from '../src/components/products'
+import { Search } from '../src/components/Search'
+import { Sort } from '../src/components/Sort'
+import { Filters } from '../src/components/filters'
 
 const Shop = () => {
   return (
     <MainContainer title="Shop page" keywords="shop">
       <Grid item xs={12} p={2}>
-        {/*<Search/>*/}
-        search
+        <Search/>
       </Grid>
       <Grid item xs={12} md={3} p={2}>
-        <Sidebar/>
+        <Filters/>
       </Grid>
       <Grid item xs={12} md={9} p={2}>
         <Box mt={2} mb={5}>
-          {/*<Sort/>*/}
-          sort
+          <Sort/>
         </Box>
-        <Main/>
-        {/*main*/}
+        <Products/>
       </Grid>
     </MainContainer>
   )

@@ -1,19 +1,45 @@
 import FiltersService from '../../api/shop/FiltersService'
 import { setError } from './error'
-import { CLEAR_FILTER, SET_COLORS_LIST, TOGGLE_FILTER_COLOR } from './types'
+import {
+  CLEAR_FILTER,
+  SET_COLORS_LIST,
+  SET_PRICE_MAX,
+  SET_PRICE_MIN,
+  SET_SEARCH_QUERY,
+  TOGGLE_FILTER_COLOR
+} from './types'
 
-export const toggleFilterColor = (color) => {
-  return {
+export const toggleFilterColor = (color) => (
+  {
     type: TOGGLE_FILTER_COLOR,
     payload: color
   }
-}
-export const clearFilter = () => {
-  return {
+)
+export const clearFilter = () => (
+  {
     type: CLEAR_FILTER,
   }
-}
+)
+export const setPriceMin = price => (
+  {
+    type: SET_PRICE_MIN,
+    payload: price
+  }
+)
 
+export const setPriceMax = price => (
+  {
+    type: SET_PRICE_MAX,
+    payload: price
+  }
+)
+
+export const setSearchQuery = q => (
+  {
+    type: SET_SEARCH_QUERY,
+    payload: q
+  }
+)
 
 //async
 export const getColors = () => {

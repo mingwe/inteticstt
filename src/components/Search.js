@@ -2,25 +2,24 @@ import React from 'react'
 import { useDebouncedCallback } from 'use-debounce'
 import { TextField } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
-import { applyFilters, setSearchFilter } from '../../redux/old/productsSlice'
+import { setSearchQuery } from '../redux/actions/filter'
 
 
 export const Search = () => {
   const dispatch = useDispatch()
-  const searchString = useSelector(state => state.products.filters.search)
+  const searchString = useSelector(state => state.filter.search)
   const debounced = useDebouncedCallback((value) => {
-    dispatch(setSearchFilter(value))
-    dispatch(applyFilters())
+    dispatch(setSearchQuery(value))
   }, 1000)
 
   return (
     <TextField
-      label="Smart search"
+      label="Search"
       defaultValue={searchString}
       size={'small'}
       color={'secondary'}
       fullWidth
-      onChange={(e) => debounced(e.target.value)}
+      onChange={(e) => debounced(e.target.value || null)}
     />
-  );
+  )
 }

@@ -1,39 +1,24 @@
 import ShopApi from '../ShopApi'
-import qs from 'qs';
+import { DESC, POPULAR } from '../../helpers/sort'
 
 export default {
   getProducts: (
-    // {
-    //   sort: {
-    //     page = 1,
-    //     perPage = 10
-    //   } = {}
-    // } = {}
-    sort = 'asc',
-    { colors, priceMin, priceMax, q } = {}
+    { type },
+    { colors, price, search } = {}
   ) => {
-    console.log('colors', colors)
+    const getSortField = type => (type === POPULAR ? 'rating' : 'price')
+    const getSortOrder = type => (type === POPULAR ? DESC : type)
+
     return ShopApi.get('/products/', {
-      // params: {
-      //   offset: (page - 1) * perPage,
-      //   limit: perPage,
-      //   getCount: 1
-      // }
       params: {
-        // color: colors.join(','),
         color: colors,
-        priceMin: priceMin,
-        yourparam: 'qwe',
-        something: undefined
+        price_gte: price.min,
+        price_lte: price.max,
+        q: search || null,
+        _sort: getSortField(type),
+        _order: getSortOrder(type)
       },
     })
   },
   getProductById: ({ productId }) => ShopApi.get(`/products/${productId}`)
-  // batchGetProductById: ({ ids }) =>
-  //   ShopApi.get(`/products:batchGet`, {
-  //     params: {
-  //       ids
-  //     },
-  //     paramsSerializer: ({ ids }) => ids.map(id => `ids=${id}`).join('&')
-  //   })
 }
