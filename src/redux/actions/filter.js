@@ -1,19 +1,10 @@
 import FiltersService from '../../api/shop/FiltersService';
+import { setError } from './error';
 
 export const setFilter = (filters) => {
   return {
     type: 'SET_FILTER',
     payload: filters
-  }
-}
-
-export const setError = (isActive, error) => { // can be used to unset error if its fixed and apply custom messages in future
-  return {
-    type: 'SET_ERROR',
-    payload: {
-      isActive: isActive,
-      message: 'an error occured'
-    }
   }
 }
 

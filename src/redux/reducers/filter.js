@@ -27,16 +27,9 @@ const filterReducer = (state = initialState, action) => {
         fetchedColors: action.payload
       }
     case 'TOGGLE_FILTER_COLOR':
-      const colors = state.filter.colors
-      const newColors = colors.includes(action.payload) ? colors.filter(i => i !== action.payload) : [...colors, action.payload]
       return {
         ...state,
-        filter: {
-          ...state.filter,
-          colors: newColors
-        }
-        // const categories = state.filters.categories
-        // state.filters.categories = categories.includes(action.payload) ? categories.filter(i => i !== action.payload) : [...categories, action.payload]
+        colors: state.colors.includes(action.payload) ? state.colors.filter(i => i !== action.payload) : [...state.colors, action.payload]
       }
     case 'CLEAR_FILTER':
       return {
