@@ -1,40 +1,29 @@
+import { CLEAR_FILTER, SET_COLORS_LIST, TOGGLE_FILTER_COLOR } from '../actions/types';
+
 const initialState = {
   fetchedColors: [],
   colors: [],
-  price: null,
-  error: {
-    hasError: false,
-    message: null
-  }
+  price: {
+    min: null,
+    max: null
+  },
 }
 
 const filterReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'SET_ERROR':
-      return {
-        ...state,
-        error: action.payload
-      }
-    case 'SET_FILTER':
-      return {
-        ...state,
-        // filter: state.filter + 1,
-        filter: action.payload
-      };
-    case 'SET_COLORS_LIST':
+    case SET_COLORS_LIST:
       return {
         ...state,
         fetchedColors: action.payload
       }
-    case 'TOGGLE_FILTER_COLOR':
+    case TOGGLE_FILTER_COLOR:
       return {
         ...state,
         colors: state.colors.includes(action.payload) ? state.colors.filter(i => i !== action.payload) : [...state.colors, action.payload]
       }
-    case 'CLEAR_FILTER':
+    case CLEAR_FILTER:
       return {
         ...state,
-        // filter: state.filter - 1,
         filter: null
       };
     default:

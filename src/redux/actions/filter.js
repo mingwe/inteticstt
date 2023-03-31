@@ -1,30 +1,16 @@
-import FiltersService from '../../api/shop/FiltersService';
-import { setError } from './error';
-
-export const setFilter = (filters) => {
-  return {
-    type: 'SET_FILTER',
-    payload: filters
-  }
-}
+import FiltersService from '../../api/shop/FiltersService'
+import { setError } from './error'
+import { CLEAR_FILTER, SET_COLORS_LIST, TOGGLE_FILTER_COLOR } from './types'
 
 export const toggleFilterColor = (color) => {
   return {
-    type: 'TOGGLE_FILTER_COLOR',
+    type: TOGGLE_FILTER_COLOR,
     payload: color
   }
 }
-
-// export const setColorsList = (list) => {
-//   return {
-//     type: 'SET_COLORS_LIST',
-//     payload: list
-//   }
-// }
-
 export const clearFilter = () => {
   return {
-    type: 'CLEAR_FILTER',
+    type: CLEAR_FILTER,
   }
 }
 
@@ -35,7 +21,7 @@ export const getColors = () => {
     FiltersService.getColorsList()
       .then(response => {
           dispatch({
-            type: 'SET_COLORS_LIST',
+            type: SET_COLORS_LIST,
             payload: response.data,
           })
         },

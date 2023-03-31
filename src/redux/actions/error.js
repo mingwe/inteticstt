@@ -1,10 +1,11 @@
-export const setError = (isActive, error) => { // can be used to unset error if its fixed and apply custom messages in future
+import { SET_ERROR } from './types'
+
+export const setError = (isActive, error) => {
   return {
-    type: 'SET_ERROR',
+    type: SET_ERROR,
     payload: {
       isActive: isActive,
       message: error
-      // message: 'an error occured'
     }
   }
 }

@@ -1,3 +1,5 @@
+import { SET_ERROR } from '../actions/types'
+
 const initialState = {
   hasError: false,
   message: null
@@ -5,7 +7,7 @@ const initialState = {
 
 const errorReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'SET_ERROR':
+    case SET_ERROR:
       return {
         ...state,
         hasError: action.payload?.isActive ?? true,
