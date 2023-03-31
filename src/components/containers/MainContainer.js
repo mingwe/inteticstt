@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../navbar'
 import Head from 'next/head';
-import { Container, createTheme, Grid, ThemeProvider } from '@mui/material'
+import { Container, createTheme, Grid, ThemeProvider, Typography } from '@mui/material'
 import { blueGrey, grey } from '@mui/material/colors'
 import { Provider } from 'react-redux'
 import store from '../../redux/store/store'
@@ -11,10 +11,10 @@ const pages = [ // temp list here, sure it needs to be done via props
     name: 'Main',
     url: '/'
   },
-  {
-    name: 'Shop',
-    url: '/shop'
-  },
+  // {
+  //   name: 'Shop',
+  //   url: '/shop'
+  // },
   {
     name: 'About',
     url: '/about'
@@ -48,7 +48,16 @@ export const MainContainer = ({ children, title, keywords }) => {
                 <Navbar pages={pages}/>
               </Grid>
               <Grid item xs={12}>
-                <Grid container>
+                <Typography
+                  variant={'h3'}
+                  textAlign={'center'}
+                  mt={2}
+                >
+                  {title}
+                </Typography>
+              </Grid>
+              <Grid item xs={12}>
+                <Grid container pt={5}>
                   {children}
                 </Grid>
               </Grid>
