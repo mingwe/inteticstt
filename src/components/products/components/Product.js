@@ -1,10 +1,9 @@
 import React from 'react'
-import { Box, Card, CardActions, CardContent, CardMedia, Rating, Typography } from '@mui/material'
+import { Card, CardContent, CardMedia, Rating, Typography } from '@mui/material'
 
 export const Product = ({ data }) => {
   const {title, description, image, color, price, rating} = data
   const imgUrl = image || '/sneakers-default.png'
-  console.log(data)
   return (
     <Card sx={{ display: 'flex', flexDirection: 'column', maxWidth: 600, height: '100%', borderRadius: '15px' }}>
       <CardMedia
@@ -36,13 +35,7 @@ export const Product = ({ data }) => {
         <Typography variant="body2" color="text.primary" mt={2}>
           Color: <Typography component="span" color={"text.secondary"} sx={{textTransform: 'capitalize'}}>{color}</Typography>
         </Typography>
-        {/*<Typography variant="body2" color="text.secondary">*/}
-        {/*  <b>Rating: </b> {rating?.rate}*/}
-        {/*</Typography>*/}
       </CardContent>
-      {/*<CardActions sx={{marginTop: 'auto'}}>*/}
-      {/*  card actions*/}
-      {/*</CardActions>*/}
     </Card>
   )
 }

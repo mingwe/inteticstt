@@ -1,5 +1,5 @@
 import React from 'react'
-import { MainContainer } from '../src/components/containers/MainContainer'
+import { MainContainer } from '../src/containers/MainContainer'
 import { Box, Grid } from '@mui/material'
 import { Products } from '../src/components/products'
 import { Search } from '../src/components/Search'

@@ -20,5 +20,5 @@ export default {
       },
     })
   },
-  getProductById: ({ productId }) => ShopApi.get(`/products/${productId}`)
+  getProductById: ({ productId }) => ShopApi.get(`/products/${productId}`) // for future single product page
 }

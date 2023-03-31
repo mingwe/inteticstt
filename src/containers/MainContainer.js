@@ -1,20 +1,16 @@
 import React from 'react'
-import Navbar from '../navbar'
+import Navbar from '../components/navbar'
 import Head from 'next/head';
 import { Container, createTheme, Grid, ThemeProvider, Typography } from '@mui/material'
 import { blueGrey, grey } from '@mui/material/colors'
 import { Provider } from 'react-redux'
-import store from '../../redux/store/store'
+import store from '../redux/store/store'
 
-const pages = [ // temp list here, sure it needs to be done via props
+const pages = [ // temp list here, sure it needs to be done via props to keep container 'clear'
   {
     name: 'Main',
     url: '/'
   },
-  // {
-  //   name: 'Shop',
-  //   url: '/shop'
-  // },
   {
     name: 'About',
     url: '/about'

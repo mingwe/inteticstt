@@ -6,6 +6,7 @@ import { setSearchQuery } from '../redux/actions/filter'
 
 
 export const Search = () => {
+  //used 'filters' store because technically its filter, but placed not in sidebar, so i decided to do logic in this standalone component
   const dispatch = useDispatch()
   const searchString = useSelector(state => state.filter.search)
   const debounced = useDebouncedCallback((value) => {
