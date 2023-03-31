@@ -8,6 +8,8 @@ import { Sidebar } from './Sidebar';
 import { Sort } from './Sort';
 import { Main } from './Main';
 import { blueGrey, grey } from '@mui/material/colors';
+import { Provider } from 'react-redux';
+import store from '../redux/store/store';
 
 const pages = [
   {
@@ -44,18 +46,20 @@ export const MainContainer = ({ children, title, keywords }) => {
         <title>{title}</title>
       </Head>
       <ThemeProvider theme={redTheme}>
-        <Container>
-          <Grid container>
-            <Grid item xs={12} pb={2}>
-              <TopBar pages={pages}/>
-            </Grid>
-            <Grid item xs={12}>
-              <Grid container>
-                {children}
+        <Provider store={store}>
+          <Container>
+            <Grid container>
+              <Grid item xs={12} pb={2}>
+                <TopBar pages={pages}/>
+              </Grid>
+              <Grid item xs={12}>
+                <Grid container>
+                  {children}
+                </Grid>
               </Grid>
             </Grid>
-          </Grid>
-        </Container>
+          </Container>
+        </Provider>
       </ThemeProvider>
     </>
   )

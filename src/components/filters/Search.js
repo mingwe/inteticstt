@@ -2,7 +2,7 @@ import React from 'react'
 import { useDebouncedCallback } from 'use-debounce'
 import { TextField } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
-import { applyFilters, setSearchFilter } from '../../redux/productsSlice'
+import { applyFilters, setSearchFilter } from '../../redux/old/productsSlice'
 
 
 export const Search = () => {

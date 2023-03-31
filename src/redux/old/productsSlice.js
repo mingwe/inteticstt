@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { fetchCategories, fetchColors, fetchProducts } from './productsAPI'
-import { sortByType } from '../helpers/sort'
-import { STATUS_ERROR, STATUS_IDLE, STATUS_LOADING } from '../helpers/status'
+import { sortByType } from '../../helpers/sort'
+import { STATUS_ERROR, STATUS_IDLE, STATUS_LOADING } from '../../helpers/status'
 import Fuse from 'fuse.js'
-import { filterWithCategoryAndPrice } from '../helpers/filters'
+import { filterWithCategoryAndPrice } from '../../helpers/filters'
 
 
 const initialState = {

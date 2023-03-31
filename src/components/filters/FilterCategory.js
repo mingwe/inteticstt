@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { applyFilters, getCategories, getColors, toggleCategory } from '../../redux/productsSlice'
+import { applyFilters, getCategories, getColors, toggleCategory } from '../../redux/old/productsSlice'
 import { Checkbox, FormControlLabel, FormGroup } from '@mui/material'
 
 export const FilterCategory = () => {

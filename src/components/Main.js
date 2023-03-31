@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Alert, Grid } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
-import { applyFilters, getProducts } from '../redux/productsSlice'
+import { applyFilters, getProducts } from '../redux/old/productsSlice'
 import { STATUS_ERROR, STATUS_IDLE, STATUS_LOADING } from '../helpers/status'
 import { Loader } from './Loader'
 import { ProductsList } from './ProductsList'

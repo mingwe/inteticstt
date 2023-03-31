@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Stack } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
-import { setSort } from '../redux/productsSlice'
+import { setSort } from '../redux/old/productsSlice'
 import { ASC, DESC, POPULAR } from '../helpers/sort'
 
 export const Sort = () => {
