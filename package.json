@@ -58,11 +58,12 @@
     ]
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^13.2.4",
     "@testing-library/jest-dom": "^5.16.5",
-    "gh-pages": "^5.0.0",
-    "redux-mock-store": "^1.5.4",
     "@testing-library/react": "^13.4.0",
     "@testing-library/testcafe": "^5.0.0",
+    "gh-pages": "^5.0.0",
+    "redux-mock-store": "^1.5.4",
     "testcafe": "^2.4.0"
   }
 }

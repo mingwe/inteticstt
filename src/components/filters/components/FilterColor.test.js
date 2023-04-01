@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, fireEvent } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import { FilterColor } from './FilterColor'
 
 describe('FilterColor component', () => {
@@ -12,11 +12,11 @@ describe('FilterColor component', () => {
   })
 
   it('toggles selected color', () => {
-    const { getByLabelText } = render(
+    render(
       <FilterColor list={colors} selected={selected} onChange={onChange} />
     );
 
-    const greenCheckbox = getByLabelText('green')
+    const greenCheckbox = screen.getByLabelText('green')
     fireEvent.click(greenCheckbox)
 
     expect(onChange).toHaveBeenCalledTimes(1)
