@@ -1,0 +1,16 @@
+export const SET_ERROR = 'SET_ERROR'
+export const SET_COLORS_LIST = 'SET_COLORS_LIST'
+export const TOGGLE_FILTER_COLOR = 'TOGGLE_FILTER_COLOR'
+export const CLEAR_FILTER = 'CLEAR_FILTER'
+
+export const SET_PRICE_MIN = 'SET_PRICE_MIN'
+export const SET_PRICE_MAX = 'SET_PRICE_MAX'
+
+export const SET_PRODUCTS = 'SET_PRODUCTS'
+export const CLEAR_PRODUCTS = 'CLEAR_PRODUCTS'
+
+export const SET_SEARCH_QUERY = 'SET_SEARCH_QUERY'
+
+export const SET_SORT = 'SET_SORT'
+
+export const SET_LOADING = 'SET_LOADING'
