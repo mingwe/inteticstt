@@ -1,4 +1,4 @@
 ## Test task for Intetics
-#### Hello. I used `fakestoreapi.com` as backend. All filters and search (with delay) done on frontend (but in real project, i believe, almost all filters will be on backend and only requests will be on front). Sure here can be many optimizations, tests, ts, detailed styling, etc. But i've relized that this is test task, so i did it as a time-effective solution. We can discuss and sure i can improve it
+#### Hello. I used json-server as backend. All filters and search done on backend, front just sending requests for it (but search queries are sent with delay). Also added some unit and e2e tests. Sure here still can be some optimizations and more detailed styling, etc. But i've relized that this is test task, so i did my best on tech side and can endlessly update the design (but that can be checked from other projects from portfolio). Any changes and decisions in this up we can discuss
 
-### libs used: React, Redux, MUI, axios, fuse.js, debounce
+### libs used: React, Redux, Next.js MUI, axios, debounce + json-server
