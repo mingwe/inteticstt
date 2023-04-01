@@ -8,6 +8,7 @@ import {
   SET_SEARCH_QUERY,
   TOGGLE_FILTER_COLOR
 } from './types'
+import { setLoading } from './loader'
 
 export const toggleFilterColor = (color) => (
   {
@@ -44,14 +45,18 @@ export const setSearchQuery = q => (
 //async
 export const getColors = () => {
   return dispatch => {
-    FiltersService.getColorsList()
+    dispatch(setLoading(true))
+    return FiltersService.getColorsList()
       .then(response => {
           dispatch({
             type: SET_COLORS_LIST,
             payload: response.data,
           })
+          dispatch(setLoading(false))
         },
-        error => dispatch(setError(true, error))
+        error => {
+          dispatch(setError(true, error.message))
+        },
       )
   }
 }

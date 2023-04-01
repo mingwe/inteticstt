@@ -12,3 +12,5 @@ export const CLEAR_PRODUCTS = 'CLEAR_PRODUCTS'
 export const SET_SEARCH_QUERY = 'SET_SEARCH_QUERY'
 
 export const SET_SORT = 'SET_SORT'
+
+export const SET_LOADING = 'SET_LOADING'

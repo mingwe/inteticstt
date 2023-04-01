@@ -5,6 +5,8 @@ import { Container, createTheme, Grid, ThemeProvider, Typography } from '@mui/ma
 import { blueGrey, grey } from '@mui/material/colors'
 import { Provider } from 'react-redux'
 import store from '../redux/store/store'
+import { LoaderGeneric } from '../components/utils/LoaderGeneric'
+import { ErrorGeneric } from '../components/utils/ErrorGeneric'
 
 const pages = [ // temp list here, sure it needs to be done via props to keep container 'clear'
   {
@@ -41,6 +43,8 @@ export const MainContainer = ({ children, title, keywords }) => {
           <Container>
             <Grid container>
               <Grid item xs={12} pb={2}>
+                <LoaderGeneric />
+                <ErrorGeneric />
                 <Navbar pages={pages}/>
               </Grid>
               <Grid item xs={12}>
