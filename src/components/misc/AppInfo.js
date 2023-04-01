@@ -10,8 +10,9 @@ export const AppInfo = () => {
         variant={'description'}
         color={'#555'}
         fontStyle={'italic'}
+        data-testid="description"
       >
-        <Typography variant={'description'} color={'#000'} fontStyle={'italic'}>Hello. </Typography>
+        <Typography variant={'description'} color={'#000'} fontStyle={'italic'} data-testid="hello-text">Hello. </Typography>
         {description}
       </Typography>
       <Typography
@@ -19,6 +20,7 @@ export const AppInfo = () => {
         component={'p'}
         mt={1}
         mb={2}
+        data-testid="github-link"
       >
         github: <Link href={'https://github.com/mingwe/inteticstt'} target={'_blank'}>https://github.com/mingwe/inteticstt</Link>
       </Typography>

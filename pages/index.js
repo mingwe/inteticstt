@@ -12,10 +12,10 @@ const Shop = () => {
       <Grid item xs={12} p={2}>
         <Search/>
       </Grid>
-      <Grid item xs={12} md={3} p={2}>
+      <Grid item xs={12} md={3} p={2} data-testid="filters-container">
         <Filters/>
       </Grid>
-      <Grid item xs={12} md={9} p={2}>
+      <Grid item xs={12} md={9} p={2} data-testid="main-container">
         <Box mt={2} mb={5}>
           <Sort/>
         </Box>
