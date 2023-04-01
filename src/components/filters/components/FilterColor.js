@@ -10,7 +10,8 @@ export const FilterColor = ({list, selected, onChange}) => {
           control={
             <Checkbox checked={selected.includes(color)} onChange={() => onChange(color)} name={color} />
           }
-          label={_.capitalize(color)}
+          // label={_.capitalize(color)}
+          label={color}
         />
       ))}
     </FormGroup>

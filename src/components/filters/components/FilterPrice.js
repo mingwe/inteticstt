@@ -1,5 +1,4 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
 import { Grid, TextField } from '@mui/material'
 
 export const FilterPrice = ({ price, onChange }) => {
