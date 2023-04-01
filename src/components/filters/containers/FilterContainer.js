@@ -1,6 +1,5 @@
-import React from 'react';
-import { Box, Divider, Typography } from '@mui/material';
-import { FilterColor } from '../components/FilterColor';
+import React from 'react'
+import { Box, Divider, Typography } from '@mui/material'
 
 export const FilterContainer = ({title, children}) => {
   return (

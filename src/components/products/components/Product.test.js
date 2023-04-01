@@ -25,7 +25,7 @@ describe('Product component', () => {
   });
 
   it('should render product image', () => {
-    const { getByAltText } = render(<Product data={testData} />)
+    render(<Product data={testData} />)
     expect(screen.getByAltText(testData.title)).toBeInTheDocument()
   })
 })
