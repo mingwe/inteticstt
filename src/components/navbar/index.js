@@ -13,6 +13,7 @@ import {
 import MenuIcon from '@mui/icons-material/Menu'
 import Link from 'next/link'
 import { PropTypes } from "prop-types"
+import { SportsSoccer } from '@mui/icons-material'
 
 
 const Navbar = ({pages}) => {
@@ -29,7 +30,7 @@ const Navbar = ({pages}) => {
 
 
   return (
-    <AppBar position="static">
+    <AppBar position="fixed">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -71,6 +72,9 @@ const Navbar = ({pages}) => {
             </Menu>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            <Toolbar>
+              <SportsSoccer />
+            </Toolbar>
             {pages.map((page) => (
               <Link key={page.url} href={page.url} passHref style={{textDecoration: 'none', color: 'inherit'}}>
                 <Button

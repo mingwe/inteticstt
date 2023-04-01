@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../components/navbar'
-import Head from 'next/head';
+import Head from 'next/head'
 import { Container, createTheme, Grid, ThemeProvider, Typography } from '@mui/material'
 import { blueGrey, grey } from '@mui/material/colors'
 import { Provider } from 'react-redux'
@@ -40,12 +40,16 @@ export const MainContainer = ({ children, title, keywords }) => {
       </Head>
       <ThemeProvider theme={redTheme}>
         <Provider store={store}>
+          <Grid container>
+            <Grid item xs={12} my={5}>
+              <Navbar pages={pages}/>
+            </Grid>
+          </Grid>
           <Container>
             <Grid container>
               <Grid item xs={12} pb={2}>
                 <LoaderGeneric />
                 <ErrorGeneric />
-                <Navbar pages={pages}/>
               </Grid>
               <Grid item xs={12}>
                 <Typography
