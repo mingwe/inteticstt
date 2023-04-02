@@ -12,7 +12,10 @@ export const PageTitle = ({ children }) => {
         fontFamily: 'revert',
         fontWeight: '100',
         letterSpacing: '5px',
-        textTransform: 'uppercase'
+        textTransform: 'uppercase',
+        '@media (max-width: 780px)': {
+          display: 'block'
+        }
       }}
       py={1}
       px={5}
