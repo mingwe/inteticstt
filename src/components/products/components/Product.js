@@ -4,8 +4,19 @@ import { Card, CardContent, CardMedia, Rating, Typography } from '@mui/material'
 export const Product = ({ data }) => {
   const {title, image, color, price, rating} = data
   const imgUrl = image || '/sneakers-default.png'
+
+  const cardStyles = {
+    display: 'flex',
+    flexDirection: 'column',
+    maxWidth: 600,
+    height: '100%',
+    borderRadius: '15px',
+    // transition: '0.3s',
+    // opacity: '0',
+  }
+
   return (
-    <Card sx={{ display: 'flex', flexDirection: 'column', maxWidth: 600, height: '100%', borderRadius: '15px' }}>
+    <Card sx={{ ...cardStyles }}>
       <CardMedia
         component="img"
         alt={title}

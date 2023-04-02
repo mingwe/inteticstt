@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import { Grid } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import { ProductsList } from './components/ProductsList'
 import { getProducts } from '../../redux/actions/products'
@@ -17,8 +16,6 @@ export const Products = () => {
   )
 
   return (
-    <Grid container spacing={2}>
-      <ProductsList products={products}/>
-    </Grid>
+    <ProductsList products={products}/>
   )
 }

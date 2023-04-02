@@ -8,7 +8,7 @@ import { Filters } from '../src/components/filters'
 
 const Shop = () => {
   return (
-    <MainContainer title="Shop page" keywords="shop">
+    <MainContainer title="John Doe's store" keywords="store">
       <Grid item xs={12} p={2}>
         <Search/>
       </Grid>

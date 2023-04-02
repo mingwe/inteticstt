@@ -30,7 +30,7 @@ const Navbar = ({pages}) => {
 
 
   return (
-    <AppBar position="fixed">
+    <AppBar position="fixed" sx={{ opacity: 0.85 }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>

@@ -1,12 +1,14 @@
 import React from 'react'
 import Navbar from '../components/navbar'
 import Head from 'next/head'
-import { Container, createTheme, Grid, ThemeProvider, Typography } from '@mui/material'
+import { Container, createTheme, Grid, ThemeProvider, Box } from '@mui/material'
 import { blueGrey, grey } from '@mui/material/colors'
 import { Provider } from 'react-redux'
 import store from '../redux/store/store'
 import { LoaderGeneric } from '../components/utils/LoaderGeneric'
 import { ErrorGeneric } from '../components/utils/ErrorGeneric'
+import { Parallax } from 'react-parallax'
+import { PageTitle } from '../components/ui-components/PageTitle'
 
 const pages = [ // temp list here, sure it needs to be done via props to keep container 'clear'
   {
@@ -41,30 +43,30 @@ export const MainContainer = ({ children, title, keywords }) => {
       <ThemeProvider theme={redTheme}>
         <Provider store={store}>
           <Grid container>
-            <Grid item xs={12} my={5}>
+            <Grid item xs={12}>
               <Navbar pages={pages}/>
             </Grid>
           </Grid>
-          <Container>
-            <Grid container>
-              <Grid item xs={12} pb={2}>
-                <LoaderGeneric />
-                <ErrorGeneric />
-              </Grid>
-              <Grid item xs={12}>
-                <Typography
-                  variant={'h3'}
-                  textAlign={'center'}
-                  mt={2}
-                >
-                  {title}
-                </Typography>
-              </Grid>
-              <Grid item xs={12}>
-                <Grid container pt={5}>
-                  {children}
+          <Parallax bgImage={'/loftbg2.png'} strength={500}>
+            <Container>
+              <Grid container py={5} my={5} mb={4} pb={4}>
+                <Grid item xs={12} pb={2}>
+                  <LoaderGeneric />
+                  <ErrorGeneric />
+                </Grid>
+                <Grid item xs={12}>
+                  <Box py={2} mt={3} textAlign={'center'}>
+                    <PageTitle>
+                      {title}
+                    </PageTitle>
+                  </Box>
                 </Grid>
               </Grid>
+            </Container>
+          </Parallax>
+          <Container>
+            <Grid container py={5} mb={5}>
+              {children}
             </Grid>
           </Container>
         </Provider>

@@ -27,7 +27,7 @@ export const Filters = () => {
 
   return (
     <>
-      <FilterContainer title={'Category'}>
+      <FilterContainer title={'Color'}>
         <FilterColor
           list={colorsList}
           selected={selectedColors}
